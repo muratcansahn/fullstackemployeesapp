@@ -12,7 +12,7 @@ app.use(express.json());
 //Database
 const db = require("./models");
 ///In development, you may need to drop existing tables and re-sync database. Just use force: true as following code
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync().then(() => {
   console.log("Drop and re-sync db.");
 });
 

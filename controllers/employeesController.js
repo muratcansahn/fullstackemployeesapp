@@ -1,6 +1,6 @@
 const db = require("../models");
 const Employees = db.employees;
-const Op = db.Sequelize.Op; //Arama, filtreleme için gerekli.
+const Op = db.Sequelize.Op; //Need for searching,filtering etc.
 
 // Create and Save a new Employees
 exports.create = (req, res) => {
@@ -32,6 +32,20 @@ exports.create = (req, res) => {
       res.status(500).send({
         message:
           err.message || "Some error occurred while creating the Tutorial.",
+      });
+    });
+};
+
+// Retrieve all Tutorials from the database.
+exports.findAll = (req, res) => {
+  Employees.findAll({})
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving tutorials.",
       });
     });
 };
