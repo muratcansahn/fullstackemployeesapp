@@ -21,7 +21,6 @@ exports.create = (req, res) => {
     wagePerYear: req.body.wagePerYear,
     //published: req.body.published ? req.body.published : false,
   };
-  console.log(req);
 
   // Save Employees in the database
   Employees.create(employees)
